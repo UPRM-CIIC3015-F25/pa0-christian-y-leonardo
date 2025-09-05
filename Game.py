@@ -22,7 +22,7 @@ def ball_movement():
     if ball.colliderect(player):
         if abs(ball.bottom - player.top) < 10:  # Check if ball hits the top of the paddle
             # TODO Task 2: Fix score to increase by 1
-            score = 1  # Increase player score
+            score += 1  # Increase player score
             ball_speed_y *= -1  # Reverse ball's vertical direction
             # TODO Task 6: Add sound effects HERE
 
@@ -65,8 +65,8 @@ pygame.init()
 clock = pygame.time.Clock()
 
 # Main Window setup
-screen_width = 500  # Screen width (can be adjusted)
-screen_height = 500  # Screen height (can be adjusted)
+screen_width = 700  # Screen width (can be adjusted)
+screen_height = 600  # Screen height (can be adjusted)
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption('Pong')  # Set window title
 
@@ -77,9 +77,9 @@ bg_color = pygame.Color('grey12')
 ball = pygame.Rect(screen_width / 2 - 15, screen_height / 2 - 15, 30, 30)  # Ball (centered)
 # TODO Task 1 Make the paddle bigger
 player_height = 15
-player_width = 100
-player = pygame.Rect(screen_width/2 - 45, screen_height - 20, player_width, player_height)  # Player paddle
-
+player_width = 200
+player = pygame.Rect(screen_width/ 6.5 - 45, screen_height - 20, player_width, player_height)  # Player paddle
+player2 = pygame.Rect(screen_width/ 1.5 - 45, screen_height - 20, player_width, player_height)
 # Game Variables
 ball_speed_x = 0
 ball_speed_y = 0
@@ -95,7 +95,7 @@ start = False  # Indicates if the game has started
 while True:
     # Event handling
     # TODO Task 4: Add your name
-    name = "John Doe"
+    name = "Leonardo"
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  # Quit the game
             pygame.quit()
@@ -119,11 +119,12 @@ while True:
 
     # Visuals
     light_grey = pygame.Color('grey83')
-    red = pygame.Color('red')
+    purple = pygame.Color('purple')
     screen.fill(bg_color)  # Clear screen with background color
-    pygame.draw.rect(screen, light_grey, player)  # Draw player paddle
+    pygame.draw.rect(screen, light_grey, player) # Draw player paddle
+    pygame.draw.rect(screen, light_grey, player2)
     # TODO Task 3: Change the Ball Color
-    pygame.draw.ellipse(screen, light_grey, ball)  # Draw ball
+    pygame.draw.ellipse(screen, purple, ball)  # Draw ball
     player_text = basic_font.render(f'{score}', False, light_grey)  # Render player score
     screen.blit(player_text, (screen_width/2 - 15, 10))  # Display score on screen
 
