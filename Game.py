@@ -1,4 +1,8 @@
+import os
+
 import pygame, sys, random
+pygame.init()
+pygame.mixer.init()
 
 def ball_movement():
     """
@@ -22,9 +26,12 @@ def ball_movement():
     if ball.colliderect(player):
         if abs(ball.bottom - player.top) < 10:  # Check if ball hits the top of the paddle
             # TODO Task 2: Fix score to increase by 1
-            score += 1  # Increase player score
+            score += 1 # Increase player score
             ball_speed_y *= -1  # Reverse ball's vertical direction
             # TODO Task 6: Add sound effects HERE
+            hit_sound = pygame.mixer.Sound(os.path.join('metalpipe.wav'))
+            hit_sound.play()
+
     # Ball collision with top boundary
     if ball.top <= 0:
         ball_speed_y *= -1  # Reverse ball's vertical direction
