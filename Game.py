@@ -1,5 +1,5 @@
 import os
-#wow
+
 import pygame, sys, random
 pygame.init()
 pygame.mixer.init()
@@ -101,7 +101,7 @@ start = False  # Indicates if the game has started
 while True:
     # Event handling
     # TODO Task 4: Add your name
-    name = "Leonardo Soto"
+    name = 'Leonardo Soto'
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  # Quit the game
             pygame.quit()
