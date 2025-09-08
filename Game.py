@@ -4,6 +4,9 @@ import pygame, sys, random
 pygame.init()
 pygame.mixer.init()
 
+pygame.mixer.music.load(os.path.join('1-05. Cycles.wav'))
+pygame.mixer.music.play()
+
 def ball_movement():
     """
     Handles the movement of the ball and collision detection with the player and screen boundaries.
@@ -28,6 +31,7 @@ def ball_movement():
             # TODO Task 2: Fix score to increase by 1
             score += 1 # Increase player score
             ball_speed_y *= -1  # Reverse ball's vertical direction
+            ball_speed_y += -1
             # TODO Task 6: Add sound effects HERE
             hit_sound = pygame.mixer.Sound(os.path.join('metalpipe.wav'))
             hit_sound.play()
@@ -101,7 +105,7 @@ start = False  # Indicates if the game has started
 while True:
     # Event handling
     # TODO Task 4: Add your name
-    name = 'Christian Lorenzo'
+    name = 'Leonardo Soto'
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  # Quit the game
             pygame.quit()
