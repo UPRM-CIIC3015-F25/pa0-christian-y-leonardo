@@ -31,6 +31,7 @@ def ball_movement():
             # TODO Task 2: Fix score to increase by 1
             score += 1 # Increase player score
             ball_speed_y *= -1  # Reverse ball's vertical direction
+            speed_increase = 5
             # TODO Task 6: Add sound effects HERE
             hit_sound = pygame.mixer.Sound(os.path.join('metalpipe.wav'))
             hit_sound.play()
