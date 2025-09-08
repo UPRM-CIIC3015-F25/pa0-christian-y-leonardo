@@ -87,8 +87,8 @@ bg_color = pygame.Color('grey12')
 ball = pygame.Rect(screen_width / 2 - 15, screen_height / 2 - 15, 30, 30)  # Ball (centered)
 # TODO Task 1 Make the paddle bigger
 player_height = 15
-player_width = 200
-player = pygame.Rect(screen_width/ 2.4 - 45, screen_height - 20, player_width, player_height)  # Player paddle
+player_width = 250
+player = pygame.Rect(screen_width/ 2.6 - 45, screen_height - 20, player_width, player_height)  # Player paddle
 
 # Game Variables
 ball_speed_x = 0
