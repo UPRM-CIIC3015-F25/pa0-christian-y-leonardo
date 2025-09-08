@@ -7,6 +7,8 @@ pygame.mixer.init()
 pygame.mixer.music.load(os.path.join('1-05. Cycles.wav'))
 pygame.mixer.music.play()
 
+
+
 def ball_movement():
     """
     Handles the movement of the ball and collision detection with the player and screen boundaries.
@@ -32,6 +34,7 @@ def ball_movement():
             score += 1 # Increase player score
             ball_speed_y *= -1  # Reverse ball's vertical direction
             ball_speed_y += -1
+
             # TODO Task 6: Add sound effects HERE
             hit_sound = pygame.mixer.Sound(os.path.join('metalpipe.wav'))
             hit_sound.play()
@@ -74,11 +77,16 @@ pygame.mixer.pre_init(44100, -16, 1, 1024)
 pygame.init()
 clock = pygame.time.Clock()
 
+
+
 # Main Window setup
-screen_width = 700  # Screen width (can be adjusted)
+screen_width = 800  # Screen width (can be adjusted)
 screen_height = 600  # Screen height (can be adjusted)
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption('Pong')  # Set window title
+image = pygame.image.load("pic.png")
+image_rect = image.get_rect(topleft=(0,0))
+
 
 # Colors
 bg_color = pygame.Color('grey12')
@@ -89,6 +97,7 @@ ball = pygame.Rect(screen_width / 2 - 15, screen_height / 2 - 15, 30, 30)  # Bal
 player_height = 15
 player_width = 200
 player = pygame.Rect(screen_width/ 2.4 - 45, screen_height - 20, player_width, player_height)  # Player paddle
+
 
 # Game Variables
 ball_speed_x = 0
@@ -123,6 +132,7 @@ while True:
             if event.key == pygame.K_RIGHT:
                 player_speed -= 6  # Stop moving right
 
+
     # Game Logic
     ball_movement()
     player_movement()
@@ -131,6 +141,7 @@ while True:
     light_grey = pygame.Color('grey83')
     green = pygame.Color('green')
     screen.fill(bg_color)  # Clear screen with background color
+    screen.blit(image, image_rect)
     pygame.draw.rect(screen, light_grey, player) # Draw player paddle
 
     # TODO Task 3: Change the Ball Color
@@ -138,6 +149,8 @@ while True:
     player_text = basic_font.render(f'{score}', False, light_grey)  # Render player score
     screen.blit(player_text, (screen_width/2 - 15, 10))  # Display score on screen
 
+
     # Update display
     pygame.display.flip()
     clock.tick(60)  # Maintain 60 frames per second
+
