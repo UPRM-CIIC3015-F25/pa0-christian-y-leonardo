@@ -1,7 +1,11 @@
 import os
+
 import pygame, sys, random
 pygame.init()
 pygame.mixer.init()
+
+pygame.mixer.music.load(os.path.join('1-05. Cycles.wav'))
+pygame.mixer.music.play()
 
 def ball_movement():
     """
@@ -100,7 +104,7 @@ start = False  # Indicates if the game has started
 while True:
     # Event handling
     # TODO Task 4: Add your name
-    name = 'Christian Lorenzo'
+    name = 'Leonardo Soto'
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  # Quit the game
             pygame.quit()
